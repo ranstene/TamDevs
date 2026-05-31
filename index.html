@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tamdevs is a technology studio building secure, high-performance custom software experiences.">
+  <meta name="theme-color" content="#01040b">
+  <meta name="application-name" content="Tamdevs">
+  <meta name="apple-mobile-web-app-title" content="Tamdevs">
+  <meta property="og:title" content="Tamdevs | CODE. CREATE. ELEVATE.">
+  <meta property="og:description" content="Tamdevs builds clean websites, apps, dashboards, and secure digital platforms for ambitious teams.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tamdevs.com/">
+  <meta property="og:image" content="https://tamdevs.com/assets/tamdevs-brand-banner.png">
+  <meta property="og:image:alt" content="Tamdevs logo with CODE. CREATE. ELEVATE. slogan and service highlights.">
+  <meta property="og:site_name" content="Tamdevs">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tamdevs | CODE. CREATE. ELEVATE.">
+  <meta name="twitter:description" content="Clean custom development, high-performance builds, and secure digital solutions.">
+  <meta name="twitter:image" content="https://tamdevs.com/assets/tamdevs-brand-banner.png">
+  <title>Tamdevs | CODE. CREATE. ELEVATE.</title>
+  <link rel="icon" type="image/png" href="assets/tamdevs-logo-square.png">
+  <link rel="shortcut icon" type="image/png" href="assets/tamdevs-logo-square.png">
+  <link rel="apple-touch-icon" href="assets/tamdevs-logo-square.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #020713;
+      --bg-deep: #01040b;
+      --panel: rgba(8, 18, 36, 0.78);
+      --panel-strong: rgba(13, 28, 55, 0.92);
+      --text: #f4f8ff;
+      --muted: #9fb4d2;
+      --accent: #00cfff;
+      --accent-2: #006dff;
+      --accent-3: #69f6ff;
+      --line: rgba(0, 216, 255, 0.18);
+      --glow: 0 0 34px rgba(0, 216, 255, 0.32);
+      --radius: 8px;
+      --shadow: 0 22px 70px rgba(0, 0, 0, 0.42);
+      --tamdevs-logo-square: url("assets/tamdevs-logo-square.png");
+      --tamdevs-logo-banner: url("assets/tamdevs-brand-banner.png");
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Montserrat", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% 16%, rgba(0, 216, 255, 0.16), transparent 26rem),
+        radial-gradient(circle at 82% 4%, rgba(38, 134, 255, 0.18), transparent 28rem),
+        linear-gradient(140deg, var(--bg-deep), #061022 48%, var(--bg));
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(0, 216, 255, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 216, 255, 0.055) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.18));
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, transparent 0 18%, rgba(0, 216, 255, 0.08) 18.1% 18.3%, transparent 18.4% 100%),
+        linear-gradient(180deg, transparent 0 30%, rgba(126, 249, 255, 0.075) 30.1% 30.25%, transparent 30.3% 100%),
+        linear-gradient(135deg, transparent 0 46%, rgba(38, 134, 255, 0.06) 46.2% 46.45%, transparent 46.6% 100%);
+      animation: circuitDrift 18s linear infinite;
+      opacity: 0.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .section {
+      position: relative;
+      padding: 110px 0;
+    }
+
+    .section-title {
+      margin-bottom: 18px;
+      color: var(--accent-3);
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .section-kicker::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      box-shadow: 0 0 18px var(--accent);
+    }
+
+    .lead {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 24px;
+      border: 1px solid rgba(126, 249, 255, 0.48);
+      border-radius: var(--radius);
+      color: var(--text);
+      background: linear-gradient(135deg, rgba(0, 216, 255, 0.95), rgba(38, 134, 255, 0.88));
+      box-shadow: 0 0 24px rgba(0, 216, 255, 0.3);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-3px);
+      border-color: rgba(126, 249, 255, 0.86);
+      box-shadow: 0 0 38px rgba(0, 216, 255, 0.55);
+      outline: none;
+    }
+
+    .btn:disabled {
+      cursor: wait;
+      opacity: 0.72;
+      transform: none;
+    }
+
+    .btn-secondary {
+      background: rgba(1, 8, 22, 0.58);
+      box-shadow: inset 0 0 0 1px rgba(0, 216, 255, 0.16), 0 0 20px rgba(0, 216, 255, 0.16);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: rgba(0, 216, 255, 0.12);
+    }
+
+    .reveal,
+    .reveal-left,
+    .reveal-right {
+      opacity: 0;
+      transition: opacity 0.72s ease, transform 0.72s ease;
+    }
+
+    .reveal {
+      transform: translateY(28px);
+    }
+
+    .reveal-left {
+      transform: translateX(-36px);
+    }
+
+    .reveal-right {
+      transform: translateX(36px);
+    }
+
+    .reveal.is-visible,
+    .reveal-left.is-visible,
+    .reveal-right.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .image-frame.reveal-left,
+    .about-copy.reveal-right {
+      animation: none;
+    }
+
+    .services-grid .reveal:nth-child(2),
+    .portfolio-grid .reveal:nth-child(2) {
+      transition-delay: 0.08s;
+    }
+
+    .services-grid .reveal:nth-child(3),
+    .portfolio-grid .reveal:nth-child(3) {
+      transition-delay: 0.16s;
+    }
+
+    .portfolio-grid .reveal:nth-child(4) {
+      transition-delay: 0.04s;
+    }
+
+    .portfolio-grid .reveal:nth-child(5) {
+      transition-delay: 0.12s;
+    }
+
+    .portfolio-grid .reveal:nth-child(6) {
+      transition-delay: 0.2s;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 20;
+      width: 100%;
+      border-bottom: 1px solid rgba(0, 216, 255, 0.12);
+      background: rgba(1, 5, 14, 0.74);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: max-content;
+      font-weight: 800;
+      text-transform: lowercase;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      border: 1px solid rgba(126, 249, 255, 0.5);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(0, 216, 255, 0.18), rgba(38, 134, 255, 0.08));
+      box-shadow: 0 0 28px rgba(0, 216, 255, 0.28), inset 0 0 18px rgba(0, 216, 255, 0.14);
+      color: var(--accent-3);
+      font-size: 1.2rem;
+    }
+
+    .brand-mark-image {
+      background:
+        linear-gradient(145deg, rgba(0, 216, 255, 0.22), rgba(38, 134, 255, 0.1)),
+        var(--tamdevs-logo-square) center / 165% auto no-repeat;
+      color: transparent;
+    }
+
+    .brand span:last-child {
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      min-height: 38px;
+      align-items: center;
+      padding: 0 12px;
+      border-radius: var(--radius);
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 700;
+      transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+      background: rgba(0, 216, 255, 0.1);
+      box-shadow: inset 0 0 0 1px rgba(0, 216, 255, 0.16);
+      outline: none;
+    }
+
+    .mobile-menu {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(0, 216, 255, 0.34);
+      border-radius: var(--radius);
+      color: var(--accent-3);
+      background: rgba(0, 216, 255, 0.07);
+      cursor: pointer;
+    }
+
+    .mobile-menu span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      margin: 5px auto;
+      background: currentColor;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .mobile-menu.is-open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .mobile-menu.is-open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu.is-open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      align-items: center;
+      padding-top: 104px;
+      overflow: hidden;
+    }
+
+    .hero-layout {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+      gap: clamp(32px, 5vw, 70px);
+      align-items: center;
+      min-height: calc(100svh - 104px);
+    }
+
+    .hero-brand-visual {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      max-width: 520px;
+      border: 1px solid rgba(126, 249, 255, 0.18);
+      border-radius: var(--radius);
+      background: rgba(1, 6, 16, 0.58);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45), 0 0 54px rgba(0, 216, 255, 0.22);
+      overflow: hidden;
+      transition: opacity 0.75s ease, transform 0.75s ease;
+      transition-delay: 0.12s;
+    }
+
+    .hero-brand-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(126, 249, 255, 0.16), transparent 34%, rgba(0, 0, 0, 0.28));
+      pointer-events: none;
+    }
+
+    .hero-brand-visual img {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      filter: saturate(1.12) contrast(1.04);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 90px 0 auto auto;
+      width: min(46vw, 620px);
+      height: min(46vw, 620px);
+      border: 1px solid rgba(0, 216, 255, 0.18);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(0, 216, 255, 0.22), transparent 35%),
+        conic-gradient(from 140deg, rgba(0, 216, 255, 0), rgba(0, 216, 255, 0.22), rgba(38, 134, 255, 0), rgba(126, 249, 255, 0.18), rgba(0, 216, 255, 0));
+      filter: blur(0.2px);
+      opacity: 0.72;
+      animation: slowRotate 20s linear infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: 9%;
+      bottom: 12%;
+      width: 220px;
+      height: 220px;
+      border: 1px solid rgba(126, 249, 255, 0.18);
+      background:
+        linear-gradient(90deg, transparent 48%, rgba(126, 249, 255, 0.3) 49% 51%, transparent 52%),
+        linear-gradient(0deg, transparent 48%, rgba(0, 216, 255, 0.22) 49% 51%, transparent 52%);
+      box-shadow: var(--glow);
+      transform: rotate(45deg);
+      opacity: 0.18;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      min-width: 0;
+      max-width: 680px;
+      margin-left: 0;
+    }
+
+    .hero-logo {
+      display: inline-grid;
+      grid-template-columns: 64px 1fr;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .hero-logo .brand-mark {
+      width: 64px;
+      height: 64px;
+      font-size: 1.75rem;
+    }
+
+    .hero-logo strong {
+      display: block;
+      color: var(--text);
+      font-size: clamp(2.8rem, 12vw, 7.5rem);
+      line-height: 0.92;
+      letter-spacing: 0;
+      text-transform: lowercase;
+      text-shadow: 0 0 28px rgba(0, 216, 255, 0.22);
+    }
+
+    .slogan {
+      margin-bottom: 20px;
+      color: var(--accent-3);
+      font-size: clamp(1rem, 2.7vw, 1.55rem);
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: opacity 0.75s ease, transform 0.75s ease;
+      transition-delay: 0.08s;
+    }
+
+    .hero-copy {
+      max-width: 690px;
+      margin-bottom: 34px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.18rem);
+      overflow-wrap: break-word;
+      transition: opacity 0.75s ease, transform 0.75s ease;
+      transition-delay: 0.16s;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      transition: opacity 0.75s ease, transform 0.75s ease;
+      transition-delay: 0.24s;
+    }
+
+    .hero-note {
+      flex-basis: 100%;
+      color: rgba(244, 248, 255, 0.72);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 54px;
+      max-width: 680px;
+      transition: opacity 0.75s ease, transform 0.75s ease;
+      transition-delay: 0.32s;
+    }
+
+    .hero-brand-visual,
+    .hero-logo,
+    .slogan,
+    .hero-copy,
+    .hero-actions,
+    .stats {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    body.page-ready .hero-brand-visual,
+    body.page-ready .hero-logo,
+    body.page-ready .slogan,
+    body.page-ready .hero-copy,
+    body.page-ready .hero-actions,
+    body.page-ready .stats {
+      opacity: 1;
+      transform: none;
+    }
+
+    .hero .hero-brand-visual,
+    .hero .hero-logo,
+    .hero .slogan,
+    .hero .hero-copy,
+    .hero .hero-actions,
+    .hero .stats {
+      opacity: 1;
+      transform: none;
+    }
+
+    .stat {
+      border: 1px solid rgba(0, 216, 255, 0.16);
+      border-radius: var(--radius);
+      padding: 18px 16px;
+      background: rgba(7, 18, 35, 0.58);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--accent-3);
+      font-size: 0.92rem;
+      line-height: 1.25;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    /* About Section */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 58px;
+      align-items: center;
+    }
+
+    .image-frame {
+      position: relative;
+      border: 1px solid rgba(0, 216, 255, 0.2);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--panel);
+      box-shadow: var(--shadow), var(--glow);
+      animation: slideInLeft 0.9s ease both;
+    }
+
+    .image-frame::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      z-index: 1;
+      border: 1px solid rgba(126, 249, 255, 0.16);
+      border-radius: calc(var(--radius) - 2px);
+      pointer-events: none;
+    }
+
+    .image-frame img {
+      aspect-ratio: 16 / 7;
+      min-height: 320px;
+      object-fit: contain;
+      background: #020713;
+      filter: saturate(1.1) contrast(1.08);
+    }
+
+    .about-copy {
+      animation: slideInRight 0.9s ease both;
+    }
+
+    .about-copy p {
+      margin-bottom: 18px;
+      color: var(--muted);
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 26px;
+      list-style: none;
+    }
+
+    .feature-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: #dceaff;
+      font-weight: 600;
+    }
+
+    .feature-list li::before {
+      content: "";
+      flex: 0 0 12px;
+      width: 12px;
+      height: 12px;
+      margin-top: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(0, 216, 255, 0.78);
+    }
+
+    /* Services Section */
+    .services {
+      background: linear-gradient(180deg, rgba(1, 4, 11, 0), rgba(0, 216, 255, 0.045), rgba(1, 4, 11, 0));
+    }
+
+    .section-heading {
+      margin-bottom: 44px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .service-card {
+      position: relative;
+      min-height: 300px;
+      padding: 28px;
+      border: 1px solid rgba(0, 216, 255, 0.16);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(145deg, rgba(9, 23, 45, 0.94), rgba(3, 9, 21, 0.88)),
+        linear-gradient(90deg, transparent, rgba(0, 216, 255, 0.12), transparent);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.26);
+      overflow: hidden;
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -30% -45% auto;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 216, 255, 0.24), transparent 64%);
+      transition: opacity 0.28s ease, transform 0.28s ease;
+      opacity: 0.5;
+    }
+
+    .service-card:hover,
+    .service-card:focus-within {
+      transform: translateY(-8px) scale(1.02);
+      border-color: rgba(126, 249, 255, 0.5);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.34), 0 0 34px rgba(0, 216, 255, 0.28);
+    }
+
+    .service-card:hover::after,
+    .service-card:focus-within::after {
+      transform: scale(1.25);
+      opacity: 0.85;
+    }
+
+    .service-icon {
+      display: grid;
+      width: 54px;
+      height: 54px;
+      margin-bottom: 24px;
+      place-items: center;
+      border: 1px solid rgba(126, 249, 255, 0.36);
+      border-radius: var(--radius);
+      color: var(--accent-3);
+      background: rgba(0, 216, 255, 0.08);
+      box-shadow: inset 0 0 16px rgba(0, 216, 255, 0.1), 0 0 22px rgba(0, 216, 255, 0.16);
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+
+    .service-card h3 {
+      margin-bottom: 14px;
+      font-size: 1.2rem;
+    }
+
+    .service-card p {
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
+    }
+
+    /* Portfolio Section */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .project-card {
+      position: relative;
+      border: 1px solid rgba(0, 216, 255, 0.15);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .project-card:hover,
+    .project-card:focus-visible {
+      transform: translateY(-6px) scale(1.015);
+      border-color: rgba(126, 249, 255, 0.48);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32), 0 0 30px rgba(0, 216, 255, 0.24);
+      outline: none;
+    }
+
+    .project-media {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-media img {
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      transition: transform 0.38s ease, filter 0.38s ease;
+    }
+
+    .project-card:hover img,
+    .project-card:focus-visible img {
+      transform: scale(1.09);
+      filter: saturate(1.22);
+    }
+
+    .project-card figcaption {
+      padding: 18px 18px 20px;
+    }
+
+    .project-card h3 {
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* Contact Section */
+    .contact {
+      background:
+        linear-gradient(180deg, rgba(1, 4, 11, 0), rgba(38, 134, 255, 0.05)),
+        radial-gradient(circle at 50% 100%, rgba(0, 216, 255, 0.12), transparent 28rem);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .contact-panel,
+    .contact-form {
+      border: 1px solid rgba(0, 216, 255, 0.16);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel {
+      padding: 30px;
+    }
+
+    .contact-panel p {
+      color: var(--muted);
+    }
+
+    .contact-lines {
+      display: grid;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .contact-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(0, 216, 255, 0.12);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .contact-line strong {
+      color: var(--text);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 18px;
+      padding: 28px;
+    }
+
+    .bot-field {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      clip-path: inset(50%);
+    }
+
+    .form-row {
+      display: grid;
+      gap: 8px;
+    }
+
+    label {
+      color: #dceaff;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(0, 216, 255, 0.2);
+      border-radius: var(--radius);
+      padding: 14px 15px;
+      color: var(--text);
+      background: rgba(1, 6, 16, 0.72);
+      outline: none;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(126, 249, 255, 0.72);
+      background: rgba(5, 14, 28, 0.9);
+      box-shadow: 0 0 0 4px rgba(0, 216, 255, 0.1);
+    }
+
+    .form-message {
+      min-height: 24px;
+      color: var(--accent-3);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid rgba(0, 216, 255, 0.12);
+      background: rgba(1, 4, 11, 0.78);
+      padding: 32px 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .footer-links,
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      list-style: none;
+    }
+
+    .footer-links a,
+    .social-links a {
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 700;
+      transition: color 0.25s ease, text-shadow 0.25s ease;
+    }
+
+    .footer-links a:hover,
+    .social-links a:hover,
+    .footer-links a:focus-visible,
+    .social-links a:focus-visible {
+      color: var(--accent-3);
+      text-shadow: 0 0 16px rgba(0, 216, 255, 0.42);
+      outline: none;
+    }
+
+    .copyright {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 26px;
+      background: rgba(0, 3, 9, 0.82);
+      backdrop-filter: blur(14px);
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-content {
+      width: min(920px, 100%);
+      border: 1px solid rgba(126, 249, 255, 0.34);
+      border-radius: var(--radius);
+      background: var(--panel-strong);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.62), 0 0 44px rgba(0, 216, 255, 0.26);
+      overflow: hidden;
+      animation: lightboxIn 0.25s ease both;
+    }
+
+    .lightbox img {
+      max-height: 68vh;
+      object-fit: cover;
+    }
+
+    .lightbox-caption {
+      padding: 18px 20px 22px;
+    }
+
+    .lightbox-caption h3 {
+      margin-bottom: 6px;
+    }
+
+    .lightbox-caption p {
+      color: var(--muted);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(126, 249, 255, 0.34);
+      border-radius: var(--radius);
+      color: var(--text);
+      background: rgba(2, 8, 20, 0.72);
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .lightbox-close:hover,
+    .lightbox-close:focus-visible {
+      transform: scale(1.05);
+      box-shadow: 0 0 22px rgba(0, 216, 255, 0.4);
+      outline: none;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(26px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-42px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(42px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slowRotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes circuitDrift {
+      from {
+        background-position: 0 0, 0 0, 0 0;
+      }
+      to {
+        background-position: 220px 110px, -180px 160px, 130px -140px;
+      }
+    }
+
+    @keyframes lightboxIn {
+      from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .section {
+        padding: 86px 0;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        right: 20px;
+        left: 20px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid rgba(0, 216, 255, 0.18);
+        border-radius: var(--radius);
+        background: rgba(2, 8, 20, 0.96);
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.is-open {
+        display: flex;
+      }
+
+      .nav-links a {
+        justify-content: center;
+        min-height: 44px;
+      }
+
+      .hero::before {
+        width: 72vw;
+        height: 72vw;
+        opacity: 0.42;
+      }
+
+      .hero-layout {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        gap: 28px;
+        padding: 28px 0 64px;
+      }
+
+      .hero-brand-visual {
+        width: min(100%, 430px);
+        margin: 0 auto;
+      }
+
+      .hero-content {
+        max-width: none;
+        width: 100%;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 901px) and (max-width: 1100px) {
+      .hero-layout {
+        grid-template-columns: minmax(250px, 0.82fr) minmax(0, 1.18fr);
+      }
+
+      .hero-content {
+        max-width: 620px;
+      }
+
+      .hero-brand-visual {
+        max-width: 450px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 40px, 1120px);
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .hero {
+        padding-top: 96px;
+      }
+
+      .hero-layout {
+        gap: 24px;
+        padding-top: 20px;
+      }
+
+      .hero-brand-visual {
+        width: min(100%, 300px);
+      }
+
+      .hero-logo {
+        grid-template-columns: 52px 1fr;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      .hero-logo .brand-mark {
+        width: 52px;
+        height: 52px;
+        font-size: 1.45rem;
+      }
+
+      .slogan {
+        margin-bottom: 14px;
+        letter-spacing: 0.1em;
+      }
+
+      .hero-copy {
+        max-width: 100%;
+        margin-bottom: 22px;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+      }
+
+      .hero-actions .btn {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .hero-note {
+        max-width: 100%;
+        overflow-wrap: break-word;
+      }
+
+      .image-frame img {
+        aspect-ratio: 16 / 9;
+        min-height: 0;
+      }
+
+      .stats,
+      .services-grid,
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        padding: 16px;
+      }
+
+      .contact-line {
+        display: grid;
+        gap: 2px;
+      }
+
+      .footer-links,
+      .social-links {
+        gap: 10px 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal,
+      .reveal-left,
+      .reveal-right {
+        opacity: 1;
+        transform: none;
+      }
+
+      .hero-brand-visual,
+      .hero-logo,
+      .slogan,
+      .hero-copy,
+      .hero-actions,
+      .stats {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+  <noscript>
+    <style>
+      .reveal,
+      .reveal-left,
+      .reveal-right {
+        opacity: 1;
+        transform: none;
+      }
+    </style>
+  </noscript>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="#home" aria-label="Tamdevs home">
+        <span class="brand-mark brand-mark-image" aria-hidden="true"></span>
+        <span>tamdevs</span>
+      </a>
+      <button class="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero section" id="home" aria-labelledby="hero-title">
+      <div class="container hero-layout">
+        <div class="hero-brand-visual" aria-hidden="true">
+          <img src="assets/tamdevs-logo-square.png" alt="">
+        </div>
+        <div class="hero-content">
+          <div class="hero-logo">
+            <span class="brand-mark brand-mark-image" aria-hidden="true"></span>
+            <strong id="hero-title">tamdevs</strong>
+          </div>
+          <p class="slogan">tamdevs &ndash; CODE. CREATE. ELEVATE.</p>
+          <p class="hero-copy">
+            We design and develop clean web apps, business systems, and digital platforms for teams that want sharp interfaces and dependable engineering.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#contact">Start a Project</a>
+            <a class="btn btn-secondary" href="#portfolio">View Portfolio</a>
+            <span class="hero-note">Custom software, modern web apps, and secure digital platforms.</span>
+          </div>
+          <div class="stats" aria-label="Tamdevs highlights">
+            <div class="stat">
+              <strong>Custom Development</strong>
+              <span>Websites, apps, dashboards, and APIs.</span>
+            </div>
+            <div class="stat">
+              <strong>High Performance</strong>
+              <span>Fast interfaces built for real users.</span>
+            </div>
+            <div class="stat">
+              <strong>Secure Solutions</strong>
+              <span>Reliable architecture from day one.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="image-frame reveal-left">
+          <img alt="Tamdevs brand banner with logo, slogan, and service highlights" src="assets/tamdevs-brand-banner.png">
+        </div>
+        <div class="about-copy reveal-right">
+          <span class="section-kicker">About Tamdevs</span>
+          <h2 class="section-title" id="about-title">Engineering clean systems for fast-moving teams.</h2>
+          <p>
+            Tamdevs is a technology studio focused on crafting custom websites, apps, dashboards, and systems that feel modern, run fast, and stay maintainable long after launch.
+          </p>
+          <p>
+            From polished front-end experiences to secure back-end architecture, we help businesses turn ideas into dependable software built for real users.
+          </p>
+          <ul class="feature-list">
+            <li>Product strategy, interface design, and full-stack implementation.</li>
+            <li>Scalable architecture with performance and security baked in.</li>
+            <li>Clear communication from first prototype to production release.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Services</span>
+          <h2 class="section-title" id="services-title">Built for precision, speed, and trust.</h2>
+          <p class="lead">Every project is shaped around practical engineering, strong visuals, and systems that can handle real business pressure.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">&lt;/&gt;</div>
+            <h3>Custom Development</h3>
+            <p>Tailored web apps, dashboards, APIs, and automation tools designed around your workflow, users, and growth plans.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">01</div>
+            <h3>High Performance</h3>
+            <p>Fast-loading interfaces, optimized data flows, and deployment practices that keep your product responsive and reliable.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">**</div>
+            <h3>Secure Solutions</h3>
+            <p>Security-conscious architecture, protected forms, safe integrations, and code patterns built to reduce risk from day one.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio section" id="portfolio" aria-labelledby="portfolio-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Portfolio</span>
+          <h2 class="section-title" id="portfolio-title">Digital work with a signal-first edge.</h2>
+          <p class="lead">App, website, dashboard, and automation concepts that match the kind of work Tamdevs can build for clients.</p>
+        </div>
+        <div class="portfolio-grid">
+          <figure class="project-card reveal" tabindex="0" data-title="Custom Business App" data-description="A high-visibility operations app for reports, task flow, and real-time decisions.">
+            <div class="project-media">
+              <img alt="Ops Control Dashboard project placeholder" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='960' height='600' viewBox='0 0 960 600'%3E%3Crect width='960' height='600' fill='%23020a16'/%3E%3Crect x='72' y='70' width='816' height='460' rx='18' fill='%2307142b' stroke='%2300d8ff' stroke-width='3'/%3E%3Crect x='108' y='112' width='180' height='360' rx='10' fill='%23030b18'/%3E%3Crect x='320' y='112' width='240' height='140' rx='10' fill='%230b213d' stroke='%237ef9ff' opacity='0.75'/%3E%3Crect x='592' y='112' width='236' height='140' rx='10' fill='%230b213d' stroke='%2300d8ff' opacity='0.75'/%3E%3Crect x='320' y='284' width='508' height='188' rx='10' fill='%23030b18' stroke='%232686ff'/%3E%3Cpath d='M350 425l86-80 74 36 70-94 98 118 120-78' fill='none' stroke='%2300d8ff' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cg fill='%237ef9ff' opacity='0.85'%3E%3Ccircle cx='436' cy='345' r='8'/%3E%3Ccircle cx='580' cy='287' r='8'/%3E%3Ccircle cx='798' cy='327' r='8'/%3E%3C/g%3E%3Ctext x='140' y='165' fill='%23f4f8ff' font-family='Montserrat, Arial' font-size='22' font-weight='800'%3EOPS%3C/text%3E%3Ctext x='140' y='210' fill='%239fb4d2' font-family='Montserrat, Arial' font-size='15'%3EMetrics%3C/text%3E%3Ctext x='140' y='245' fill='%239fb4d2' font-family='Montserrat, Arial' font-size='15'%3EReports%3C/text%3E%3Ctext x='140' y='280' fill='%239fb4d2' font-family='Montserrat, Arial' font-size='15'%3EDeploys%3C/text%3E%3C/svg%3E">
+            </div>
+            <figcaption>
+              <h3>Custom Business App</h3>
+              <p>Operational tools for growing teams.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="project-card reveal" tabindex="0" data-title="E-commerce System" data-description="A sleek storefront concept with fast browsing, secure checkout, and inventory-ready structure.">
+            <div class="project-media">
+              <img alt="Neon Commerce Platform project placeholder" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='960' height='600' viewBox='0 0 960 600'%3E%3Crect width='960' height='600' fill='%23010612'/%3E%3Cg opacity='0.22' stroke='%2300d8ff' stroke-width='2'%3E%3Cpath d='M0 120h960M0 300h960M0 480h960M160 0v600M480 0v600M800 0v600'/%3E%3C/g%3E%3Crect x='92' y='88' width='776' height='424' rx='22' fill='%23071225' stroke='%237ef9ff' stroke-width='3'/%3E%3Crect x='136' y='136' width='324' height='324' rx='16' fill='%230b213d' stroke='%2300d8ff'/%3E%3Ccircle cx='298' cy='298' r='94' fill='%2300d8ff' opacity='0.22'/%3E%3Cpath d='M250 315l42-82h56l-41 68h61l-103 95 34-81z' fill='%237ef9ff'/%3E%3Crect x='510' y='146' width='286' height='36' rx='8' fill='%23f4f8ff' opacity='0.92'/%3E%3Crect x='510' y='210' width='236' height='20' rx='5' fill='%239fb4d2' opacity='0.7'/%3E%3Crect x='510' y='246' width='266' height='20' rx='5' fill='%239fb4d2' opacity='0.48'/%3E%3Crect x='510' y='318' width='124' height='52' rx='8' fill='%2300d8ff'/%3E%3Crect x='650' y='318' width='124' height='52' rx='8' fill='%23081630' stroke='%237ef9ff'/%3E%3Ctext x='552' y='352' fill='%23010612' font-family='Montserrat, Arial' font-size='16' font-weight='800'%3EBUY%3C/text%3E%3C/svg%3E">
+            </div>
+            <figcaption>
+              <h3>E-commerce System</h3>
+              <p>Modern storefront and checkout flow.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="project-card reveal" tabindex="0" data-title="Secure Client Portal" data-description="A polished portal experience for private files, account activity, and client communication.">
+            <div class="project-media">
+              <img alt="Secure Client Portal project placeholder" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='960' height='600' viewBox='0 0 960 600'%3E%3Crect width='960' height='600' fill='%23030a15'/%3E%3Ccircle cx='480' cy='300' r='230' fill='%232686ff' opacity='0.12'/%3E%3Crect x='120' y='82' width='720' height='436' rx='18' fill='%23091427' stroke='%2300d8ff' stroke-width='3'/%3E%3Cpath d='M480 146c62 0 112 50 112 112v42h-46v-42a66 66 0 0 0-132 0v42h-46v-42c0-62 50-112 112-112z' fill='%237ef9ff' opacity='0.9'/%3E%3Crect x='330' y='278' width='300' height='176' rx='20' fill='%2300d8ff' opacity='0.82'/%3E%3Ccircle cx='480' cy='354' r='28' fill='%23030a15'/%3E%3Crect x='467' y='374' width='26' height='42' rx='8' fill='%23030a15'/%3E%3Cg fill='%239fb4d2' opacity='0.62'%3E%3Crect x='172' y='140' width='120' height='16' rx='4'/%3E%3Crect x='172' y='178' width='90' height='16' rx='4'/%3E%3Crect x='668' y='140' width='120' height='16' rx='4'/%3E%3Crect x='698' y='178' width='90' height='16' rx='4'/%3E%3C/g%3E%3C/svg%3E">
+            </div>
+            <figcaption>
+              <h3>Secure Client Portal</h3>
+              <p>Protected access for client operations.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="project-card reveal" tabindex="0" data-title="AI Automation Workflow" data-description="An automation concept for routing tasks, summaries, and data actions through intelligent pipelines.">
+            <div class="project-media">
+              <img alt="AI Workflow Engine project placeholder" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='960' height='600' viewBox='0 0 960 600'%3E%3Crect width='960' height='600' fill='%23020814'/%3E%3Cg stroke='%2300d8ff' stroke-width='4' fill='none' opacity='0.8'%3E%3Cpath d='M220 300h140M600 300h140M480 160v90M480 350v90M330 190l88 70M630 190l-88 70M330 410l88-70M630 410l-88-70'/%3E%3C/g%3E%3Cg fill='%23091427' stroke='%237ef9ff' stroke-width='3'%3E%3Ccircle cx='480' cy='300' r='86'/%3E%3Ccircle cx='200' cy='300' r='64'/%3E%3Ccircle cx='760' cy='300' r='64'/%3E%3Ccircle cx='480' cy='126' r='54'/%3E%3Ccircle cx='480' cy='474' r='54'/%3E%3Ccircle cx='290' cy='160' r='48'/%3E%3Ccircle cx='670' cy='160' r='48'/%3E%3Ccircle cx='290' cy='440' r='48'/%3E%3Ccircle cx='670' cy='440' r='48'/%3E%3C/g%3E%3Ctext x='480' y='315' fill='%23f4f8ff' font-family='Montserrat, Arial' font-size='42' font-weight='800' text-anchor='middle'%3EAI%3C/text%3E%3Cg fill='%2300d8ff'%3E%3Ccircle cx='200' cy='300' r='10'/%3E%3Ccircle cx='760' cy='300' r='10'/%3E%3Ccircle cx='480' cy='126' r='10'/%3E%3Ccircle cx='480' cy='474' r='10'/%3E%3C/g%3E%3C/svg%3E">
+            </div>
+            <figcaption>
+              <h3>AI Automation Workflow</h3>
+              <p>Automated routing for smarter teams.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="project-card reveal" tabindex="0" data-title="Mobile App UI" data-description="A mobile-first app interface concept with clear navigation, quick actions, and dashboard cards.">
+            <div class="project-media">
+              <img alt="Mobile Banking UI project placeholder" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='960' height='600' viewBox='0 0 960 600'%3E%3Crect width='960' height='600' fill='%23020a16'/%3E%3Crect x='360' y='54' width='240' height='492' rx='36' fill='%23071124' stroke='%2300d8ff' stroke-width='4'/%3E%3Crect x='386' y='98' width='188' height='396' rx='18' fill='%23030b18'/%3E%3Crect x='410' y='132' width='140' height='76' rx='14' fill='%2300d8ff' opacity='0.82'/%3E%3Crect x='410' y='236' width='60' height='60' rx='14' fill='%230b213d' stroke='%237ef9ff'/%3E%3Crect x='490' y='236' width='60' height='60' rx='14' fill='%230b213d' stroke='%237ef9ff'/%3E%3Crect x='410' y='326' width='140' height='18' rx='5' fill='%239fb4d2' opacity='0.7'/%3E%3Crect x='410' y='362' width='118' height='18' rx='5' fill='%239fb4d2' opacity='0.5'/%3E%3Crect x='410' y='426' width='140' height='42' rx='12' fill='%232686ff' opacity='0.8'/%3E%3Cg stroke='%2300d8ff' stroke-width='2' opacity='0.28'%3E%3Cpath d='M130 110h160v80h42M670 140h150v120h48M120 500h180v-70h56M660 510h160v-92h42' fill='none'/%3E%3C/g%3E%3C/svg%3E">
+            </div>
+            <figcaption>
+              <h3>Mobile App UI</h3>
+              <p>Fast app experience for mobile users.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="project-card reveal" tabindex="0" data-title="Company Website Launch" data-description="A modern company website concept with launch-ready pages, speed, and brand consistency.">
+            <div class="project-media">
+              <img alt="Cloud Launch System project placeholder" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='960' height='600' viewBox='0 0 960 600'%3E%3Crect width='960' height='600' fill='%23010612'/%3E%3Cg fill='none' stroke='%2300d8ff' stroke-width='3' opacity='0.42'%3E%3Cpath d='M140 360c60-92 142-138 246-138 142 0 206 86 246 138'/%3E%3Cpath d='M220 406h520'/%3E%3Cpath d='M300 454h360'/%3E%3C/g%3E%3Cpath d='M480 120c76 74 116 148 116 222 0 92-52 138-116 138s-116-46-116-138c0-74 40-148 116-222z' fill='%23091427' stroke='%237ef9ff' stroke-width='4'/%3E%3Cpath d='M480 196c38 40 58 84 58 132 0 46-26 70-58 70s-58-24-58-70c0-48 20-92 58-132z' fill='%2300d8ff' opacity='0.8'/%3E%3Ccircle cx='480' cy='328' r='34' fill='%23010612'/%3E%3Cg fill='%2300d8ff'%3E%3Ccircle cx='216' cy='406' r='9'/%3E%3Ccircle cx='744' cy='406' r='9'/%3E%3Ccircle cx='300' cy='454' r='9'/%3E%3Ccircle cx='660' cy='454' r='9'/%3E%3C/g%3E%3Ctext x='480' y='548' fill='%23f4f8ff' font-family='Montserrat, Arial' font-size='26' font-weight='800' text-anchor='middle' letter-spacing='4'%3ECLOUD LAUNCH%3C/text%3E%3C/svg%3E">
+            </div>
+            <figcaption>
+              <h3>Company Website Launch</h3>
+              <p>Brand-ready web presence and pages.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div class="contact-panel reveal-left">
+          <span class="section-kicker">Contact</span>
+          <h2 class="section-title" id="contact-title">Ready to elevate your next build?</h2>
+          <p>
+            Tell us what you want to create. Tamdevs can help plan the product, design the experience, and ship the system.
+          </p>
+          <div class="contact-lines">
+            <div class="contact-line">
+              <strong>Email</strong>
+              <span>hello@tamdevs.com</span>
+            </div>
+            <div class="contact-line">
+              <strong>Website</strong>
+              <span>tamdevs.com</span>
+            </div>
+            <div class="contact-line">
+              <strong>Studio</strong>
+              <span>Remote-first technology studio</span>
+            </div>
+            <div class="contact-line">
+              <strong>Focus</strong>
+              <span>Web apps, platforms, automation</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form reveal-right" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="bot-field" aria-hidden="true">
+            <label>Do not fill this out if you are human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+          </p>
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" required>
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your project" required></textarea>
+          </div>
+          <button class="btn" type="submit">Submit</button>
+          <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p class="copyright">&copy; <span id="year"></span> Tamdevs. All rights reserved.</p>
+      <ul class="footer-links" aria-label="Footer navigation">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <ul class="social-links" aria-label="Social media links">
+        <li><a href="https://tamdevs.com" aria-label="Tamdevs website">Website</a></li>
+        <li><a href="https://facebook.com/tamdevs" aria-label="Tamdevs on Facebook">Facebook</a></li>
+        <li><a href="https://instagram.com/tamdevs" aria-label="Tamdevs on Instagram">Instagram</a></li>
+        <li><a href="https://github.com/tamdevs" aria-label="Tamdevs on GitHub">GitHub</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Portfolio Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Portfolio preview">
+    <button class="lightbox-close" type="button" aria-label="Close portfolio preview">&times;</button>
+    <div class="lightbox-content">
+      <img id="lightboxImage" alt="">
+      <div class="lightbox-caption">
+        <h3 id="lightboxTitle"></h3>
+        <p id="lightboxDescription"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    requestAnimationFrame(() => {
+      document.body.classList.add("page-ready");
+    });
+
+    const menuButton = document.querySelector(".mobile-menu");
+    const navLinks = document.querySelector(".nav-links");
+    const portfolioCards = document.querySelectorAll(".project-card");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxTitle = document.getElementById("lightboxTitle");
+    const lightboxDescription = document.getElementById("lightboxDescription");
+    const lightboxClose = document.querySelector(".lightbox-close");
+    const contactForm = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
+    const revealElements = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.16 });
+
+      revealElements.forEach((element) => revealObserver.observe(element));
+    } else {
+      revealElements.forEach((element) => element.classList.add("is-visible"));
+    }
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("is-open");
+      menuButton.classList.toggle("is-open", isOpen);
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("is-open");
+        menuButton.classList.remove("is-open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    const openLightbox = (card) => {
+      const image = card.querySelector("img");
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
+      lightboxTitle.textContent = card.dataset.title;
+      lightboxDescription.textContent = card.dataset.description;
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      lightboxClose.focus();
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    };
+
+    portfolioCards.forEach((card) => {
+      card.addEventListener("click", () => openLightbox(card));
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openLightbox(card);
+        }
+      });
+    });
+
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+        closeLightbox();
+      }
+    });
+
+    const encodeForm = (form) => new URLSearchParams(new FormData(form)).toString();
+
+    const openEmailFallback = (form) => {
+      const data = Object.fromEntries(new FormData(form).entries());
+      const subject = encodeURIComponent(`Tamdevs project inquiry from ${data.name || "Website visitor"}`);
+      const body = encodeURIComponent(`Name: ${data.name || ""}
+Email: ${data.email || ""}
+
+Message:
+${data.message || ""}`);
+      window.location.href = `mailto:hello@tamdevs.com?subject=${subject}&body=${body}`;
+    };
+
+    contactForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const isGitHubPages = window.location.hostname.endsWith(".github.io");
+
+      if (window.location.protocol === "file:") {
+        formMessage.textContent = "Local preview cannot send messages. When deployed on GitHub Pages, this opens your email app.";
+        openEmailFallback(contactForm);
+        return;
+      }
+
+      if (isGitHubPages) {
+        formMessage.textContent = "Opening your email app to send this message.";
+        openEmailFallback(contactForm);
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+      formMessage.textContent = "";
+
+      try {
+        const response = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encodeForm(contactForm),
+        });
+
+        if (!response.ok) {
+          throw new Error("Form submission failed.");
+        }
+
+        formMessage.textContent = "Thanks. Your message has been sent to Tamdevs.";
+        contactForm.reset();
+      } catch (error) {
+        console.error("Tamdevs contact form error:", error);
+        formMessage.textContent = "Opening your email app as a fallback.";
+        openEmailFallback(contactForm);
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = "Submit";
+      }
+    });
+  </script>
+</body>
+</html>
